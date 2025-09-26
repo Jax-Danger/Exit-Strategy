@@ -11,8 +11,6 @@ var time_left:float = 0.0
 @onready var player = $"../Player"
 
 func _ready():
-	if not player.current_level == 1:
-		Main_Menu.new().load_scene("MainMenu")
 	desk_bell.bell_pressed.connect(self.check_for_five)
 
 	if time_label:
