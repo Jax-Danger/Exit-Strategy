@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://om1jfxcoic1j"]
+
+[ext_resource type="PackedScene" uid="uid://xstpo2yqbkpx" path="res://imported_models/rug.glb" id="1_2ineo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gxoei"]
+size = Vector3(1.76477, 1.96454, 0.0181733)
+
+[node name="rug" instance=ExtResource("1_2ineo")]
+metadata/__editor_changed = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00299072, -0.00241089, -0.00174707)
+shape = SubResource("BoxShape3D_gxoei")
