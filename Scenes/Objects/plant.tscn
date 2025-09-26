@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://83n37fwmtf3x"]
+
+[ext_resource type="PackedScene" uid="uid://bj8clwn0pfgc3" path="res://imported_models/Plant.glb" id="1_r5cgt"]
+[ext_resource type="Script" uid="uid://kbxggh6wmk8w" path="res://Scripts/interactable.gd" id="2_kju48"]
+[ext_resource type="Texture2D" uid="uid://cejnluk08s4gd" path="res://Textures/FloatingCircle.png" id="3_4qjn4"]
+[ext_resource type="Texture2D" uid="uid://c2t54e7xi0bqa" path="res://Textures/interact_Icon.png" id="4_fh5my"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kju48"]
+size = Vector3(1.27159, 1.73535, 1.41527)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jv535"]
+radius = 7.846818
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fb5jo"]
+radius = 3.4714422
+
+[node name="Plant" node_paths=PackedStringArray("optional_outer_area", "optional_outer_icon", "optional_inner_area", "optional_inner_icon") instance=ExtResource("1_r5cgt")]
+script = ExtResource("2_kju48")
+events_first_thought = "What's this?"
+inspect_enabled = true
+inspect_spawn_distance = 0.7
+inspect_min_zoom = 0.9
+inspect_max_zoom = 0.6
+inspect_scale = 0.45
+inspect_description = "Just a standard house plant."
+optional_outer_area = NodePath("OuterArea")
+optional_outer_icon = NodePath("OuterArea/Circle Icon")
+optional_inner_area = NodePath("InnerArea")
+optional_inner_icon = NodePath("InnerArea/interact Icon")
+
+[node name="Mesh" parent="." index="0"]
+layers = 2
+
+[node name="Label3D" type="Label3D" parent="Mesh" index="0"]
+transform = Transform3D(-0.0071898773, -0.13209116, -0.098616555, 0.10710544, 0.07129184, -0.103300035, 0.12530653, -0.06851565, 0.082636975, -0.22310151, 0.69628, 0.3848999)
+text = "25"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0185135, 0.0231931, 0.00943148)
+visible = false
+shape = SubResource("BoxShape3D_kju48")
+
+[node name="OuterArea" type="Area3D" parent="." index="2"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OuterArea" index="0"]
+shape = SubResource("SphereShape3D_jv535")
+
+[node name="Circle Icon" type="Sprite3D" parent="OuterArea" index="1"]
+transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, 0, 1.1576924, 0.000546847)
+billboard = 2
+texture = ExtResource("3_4qjn4")
+
+[node name="InnerArea" type="Area3D" parent="." index="3"]
+visible = false
+
+[node name="interact Icon" type="Sprite3D" parent="InnerArea" index="0"]
+transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, 0, 1.1458628, 0.000576627)
+billboard = 2
+texture = ExtResource("4_fh5my")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InnerArea" index="1"]
+shape = SubResource("SphereShape3D_fb5jo")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://citwwq4f0awot"]
+
+[ext_resource type="PackedScene" uid="uid://b3cmvaa7wlop8" path="res://imported_models/digital clock.glb" id="1_088ub"]
+[ext_resource type="Script" uid="uid://dgnbc0x32i36w" path="res://Scripts/digital_clock.gd" id="2_turip"]
+[ext_resource type="AudioStream" uid="uid://bkk3cp0t58fmh" path="res://audio/Objects/slow-ticking.mp3" id="4_acrm7"]
+[ext_resource type="FontFile" uid="uid://duhxd0x4wwodb" path="res://Fonts/DS-DIGII.TTF" id="6_kgmhk"]
+
+[node name="digital clock" instance=ExtResource("1_088ub")]
+script = ExtResource("2_turip")
+metadata/__editor_changed = true
+
+[node name="Label3D" type="Label3D" parent="Mesh" index="0"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.029580832, 0.042836428, -0.17241386)
+pixel_size = 0.0255
+text = "5:00"
+font = ExtResource("6_kgmhk")
+
+[node name="SlowTicking" type="AudioStreamPlayer3D" parent="." index="1"]
+transform = Transform3D(-1.4702742e-07, -2.9802322e-08, 2, -2.9802322e-08, 2, 2.9802322e-08, -2, -2.980232e-08, -1.4702742e-07, 0.057325363, 0.101313114, -0.28793335)
+stream = ExtResource("4_acrm7")
+volume_db = -28.815
+pitch_scale = 1.06
+autoplay = true

@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://76eh4yo22rfb"]
+
+[ext_resource type="Texture2D" uid="uid://7k6utkgxdbka" path="res://Textures/plank floor.png" id="1_wm4b4"]
+[ext_resource type="PackedScene" uid="uid://dn4m4mpxdjvqv" path="res://Scenes/Objects/office_chair.tscn" id="4_pp8dc"]
+[ext_resource type="PackedScene" uid="uid://kmoux7xv7bdy" path="res://Scenes/Objects/table.tscn" id="5_lfg44"]
+[ext_resource type="PackedScene" uid="uid://b6wxrqah860r0" path="res://Scenes/Objects/couch.tscn" id="6_iehvq"]
+[ext_resource type="PackedScene" uid="uid://bnfn0sdf4avwg" path="res://Scenes/Objects/reception_desk.tscn" id="6_lfg44"]
+[ext_resource type="PackedScene" uid="uid://om1jfxcoic1j" path="res://Scenes/Objects/rug.tscn" id="7_lfg44"]
+[ext_resource type="PackedScene" uid="uid://83n37fwmtf3x" path="res://Scenes/Objects/plant.tscn" id="9_jvegv"]
+[ext_resource type="PackedScene" uid="uid://4k2alyqbfjw4" path="res://Scenes/Objects/candlestick.tscn" id="13_gh4hr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qbq3j"]
+size = Vector3(14.560425, 0.1, 14.457031)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ragr8"]
+albedo_texture = ExtResource("1_wm4b4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sr8py"]
+size = Vector2(8, 8)
+
+[node name="Floor" type="Node3D"]
+metadata/__editor_changed = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(0.903, 0, 0, 0, 0.903, 0, 0, 0, 0.903, 0, -0.0427957, 0)
+
+[node name="Collision" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1.1074038, 0, 0, 0, 1.1074038, 0, 0, 0, 1.1074038, -0.01574427, 0, -0.007572427)
+shape = SubResource("BoxShape3D_qbq3j")
+
+[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 0, -4)
+material_override = SubResource("StandardMaterial3D_ragr8")
+mesh = SubResource("PlaneMesh_sr8py")
+skeleton = NodePath("../..")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 0, 4)
+material_override = SubResource("StandardMaterial3D_ragr8")
+mesh = SubResource("PlaneMesh_sr8py")
+skeleton = NodePath("../..")
+
+[node name="Mesh3" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, 4)
+material_override = SubResource("StandardMaterial3D_ragr8")
+mesh = SubResource("PlaneMesh_sr8py")
+skeleton = NodePath("../..")
+
+[node name="Mesh4" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4, 0, -4)
+material_override = SubResource("StandardMaterial3D_ragr8")
+mesh = SubResource("PlaneMesh_sr8py")
+skeleton = NodePath("../..")
+
+[node name="Reception Desk2" parent="." instance=ExtResource("6_lfg44")]
+transform = Transform3D(-2.5010746, 0.005123869, -0.0044291364, 0.005107905, 2.5013564, 0.005604271, 0.005527447, 0.006965445, -2.0092824, 0.20769095, 0.596695, 5.055783)
+
+[node name="Office_Chair2" parent="." instance=ExtResource("4_pp8dc")]
+transform = Transform3D(-0.43365, 0, 0.611922, 0, 0.75, 0, -0.611922, 0, -0.43365, 1.312211, 0.690735, 4.5153794)
+
+[node name="Couch1" parent="." instance=ExtResource("6_iehvq")]
+transform = Transform3D(2.26915, 0, 0, 0, 1.49601, 0, 0, 0, 1.82017, 0.0837214, 0.536116, -4.03132)
+
+[node name="Couch2" parent="." instance=ExtResource("6_iehvq")]
+transform = Transform3D(-8.31294e-08, 0, 1.82017, 0, 1.49601, 0, -1.90178, 0, -7.95623e-08, -3.64006, 0.52197, -1.41201)
+
+[node name="Couch3" parent="." instance=ExtResource("6_iehvq")]
+transform = Transform3D(-2.26915, 0, -2.74839e-07, 0, 1.49601, 0, 3.42632e-07, 0, -1.82017, 0.130837, 0.52197, 1.30987)
+
+[node name="rug2" parent="." instance=ExtResource("7_lfg44")]
+transform = Transform3D(-2.2292808e-07, 5.7, -1.3113416e-07, 0, -2.491549e-07, -3, -5.1, -2.491549e-07, 5.7320566e-15, -0.514228, -0.035244, -1.50003)
+
+[node name="Plant" parent="." instance=ExtResource("9_jvegv")]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 0.73756987, 1.018786, -1.3190784)
+
+[node name="Candlestick" parent="." instance=ExtResource("13_gh4hr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04833579, 1.0123831, -1.3122767)
+
+[node name="Table" parent="." instance=ExtResource("5_lfg44")]
+transform = Transform3D(1.14, 0, 0, 0, 1.14, 0, 0, 0, 1.14, -0.07366398, 0.33177006, -1.3306105)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.5028908, 2.7531273, 7.1241198)
+text = "Please Wait. 
+Someone will be with you shortly."
+font_size = 42

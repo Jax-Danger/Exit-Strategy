@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtgnx1ptmbop2"]
+
+[ext_resource type="PackedScene" uid="uid://c7bfhcyhxipba" path="res://imported_models/ac unit.glb" id="1_2sdwy"]
+
+[node name="ac unit" instance=ExtResource("1_2sdwy")]

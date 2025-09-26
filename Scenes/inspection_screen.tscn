@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdkbtxen05df2"]
+
+[ext_resource type="Script" uid="uid://chrkdwbltnpmm" path="res://Scripts/inspectionUI.gd" id="1_hjfmo"]
+
+[node name="InspectionUI" type="Node3D"]
+script = ExtResource("1_hjfmo")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.776471)
+
+[node name="DescriptionLabel" type="Label" parent="CanvasLayer"]
+z_index = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 152.0
+offset_right = 323.0
+offset_bottom = -103.0
+grow_vertical = 2
+autowrap_mode = 2

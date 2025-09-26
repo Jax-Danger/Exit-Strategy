@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://brn5qbuo81m7k"]
+
+[ext_resource type="PackedScene" uid="uid://dci1bqbj7gnr3" path="res://imported_models/desk_bell.glb" id="1_a6fly"]
+[ext_resource type="Script" uid="uid://c7kkpjq44bu6x" path="res://Scripts/desk_bell.gd" id="2_0yjms"]
+[ext_resource type="AudioStream" uid="uid://ceibctkwwdipn" path="res://audio/bell.mp3" id="3_su2h5"]
+[ext_resource type="Script" uid="uid://fucj0y272x0k" path="res://Scripts/EventResource.gd" id="3_v1rpc"]
+[ext_resource type="Texture2D" uid="uid://cejnluk08s4gd" path="res://Textures/FloatingCircle.png" id="5_0yjms"]
+[ext_resource type="Texture2D" uid="uid://c2t54e7xi0bqa" path="res://Textures/interact_Icon.png" id="6_v1rpc"]
+
+[sub_resource type="Resource" id="Resource_0yjms"]
+script = ExtResource("3_v1rpc")
+target = NodePath(".")
+method = "ring_bell"
+metadata/_custom_type_script = "uid://fucj0y272x0k"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ncbaw"]
+radius = 0.113439
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_su2h5"]
+radius = 1.81743
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hfeln"]
+radius = 1.13811
+
+[node name="desk_bell" node_paths=PackedStringArray("optional_audio", "optional_outer_area", "optional_outer_icon", "optional_inner_area", "optional_inner_icon") instance=ExtResource("1_a6fly")]
+script = ExtResource("2_0yjms")
+events = Array[ExtResource("3_v1rpc")]([SubResource("Resource_0yjms")])
+optional_audio = NodePath("Service-bell-ring-14610")
+optional_outer_area = NodePath("OuterArea")
+optional_outer_icon = NodePath("OuterArea/Circle Icon")
+optional_inner_area = NodePath("InnerArea")
+optional_inner_icon = NodePath("InnerArea/interact Icon")
+
+[node name="Mesh" parent="." index="0"]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 0, 0, 0)
+layers = 2
+
+[node name="Label3D" type="Label3D" parent="Mesh" index="0"]
+transform = Transform3D(0.72349066, 0.03780313, 0.005424198, 0.08251083, -0.03320187, -0.048631784, -0.03455471, 0.71222496, -0.0025549766, -0.045817018, -0.11784637, 0.013909483)
+text = "Ring me at a certain time"
+
+[node name="Bell" type="StaticBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0186048, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bell" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0186048, 0)
+shape = SubResource("SphereShape3D_ncbaw")
+
+[node name="Service-bell-ring-14610" type="AudioStreamPlayer3D" parent="." index="2"]
+stream = ExtResource("3_su2h5")
+max_db = -4.074
+
+[node name="OuterArea" type="Area3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OuterArea" index="0"]
+shape = SubResource("SphereShape3D_su2h5")
+
+[node name="Circle Icon" type="Sprite3D" parent="OuterArea" index="1"]
+transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, 0, 0.152396, 0.000546847)
+billboard = 2
+texture = ExtResource("5_0yjms")
+
+[node name="InnerArea" type="Area3D" parent="." index="4"]
+
+[node name="interact Icon" type="Sprite3D" parent="InnerArea" index="0"]
+transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, 0, 0.152396, 0.000576627)
+billboard = 2
+texture = ExtResource("6_v1rpc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InnerArea" index="1"]
+shape = SubResource("SphereShape3D_hfeln")

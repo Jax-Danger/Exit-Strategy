@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnfn0sdf4avwg"]
+
+[ext_resource type="PackedScene" uid="uid://dk0kkcisnay1g" path="res://imported_models/Reception Desk.glb" id="1_0vqha"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ski5"]
+size = Vector3(1.70721, 0.457336, 0.256683)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p3k1c"]
+size = Vector3(0.176666, 0.457977, 1.04666)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cvvem"]
+size = Vector3(0.191528, 0.448959, 1.04553)
+
+[node name="Reception Desk" instance=ExtResource("1_0vqha")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0171814, 0.00784302, 0.463072)
+shape = SubResource("BoxShape3D_7ski5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.883316, 0.00138855, -0.0574188)
+shape = SubResource("BoxShape3D_p3k1c")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.897491, 0.0061264, -0.0464478)
+shape = SubResource("BoxShape3D_cvvem")

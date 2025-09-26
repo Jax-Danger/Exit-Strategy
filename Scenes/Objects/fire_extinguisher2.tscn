@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsrldnl7h65kq"]
+
+[ext_resource type="PackedScene" uid="uid://vyh5sdr0fcne" path="res://imported_models/fire_extinguisher.glb" id="1_g6agb"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u73rc"]
+height = 0.497543
+radius = 0.118164
+
+[node name="fire_extinguisher" instance=ExtResource("1_g6agb")]
+
+[node name="Mesh" parent="." index="0"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0286486, 0)
+shape = SubResource("CylinderShape3D_u73rc")
